@@ -159,7 +159,7 @@ const Contact = () => {
 
             <h1 className="text-6xl md:text-8xl font-bold mb-6">
               <span className="bg-gradient-to-r from-emerald-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent block">
-                Let's Create
+                Let us Create
               </span>
               <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent text-4xl md:text-6xl block mt-2">
                 Something Magical
@@ -191,7 +191,7 @@ const Contact = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
               Ready to transform your vision into 
               <span className="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent font-medium"> breathtaking digital art</span>? 
-              Let's collaborate and create something that tells your unique story through 
+              Let us collaborate and create something that tells your unique story through 
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium"> boundless creativity</span>.
             </p>
           </div>
@@ -218,7 +218,7 @@ const Contact = () => {
                         Send Me a Message
                       </span>
                     </h2>
-                    <p className="text-gray-600 text-sm mt-1">Let's bring your vision to life</p>
+                    <p className="text-gray-600 text-sm mt-1">Bring your vision to life</p>
                   </div>
                 </div>
 
@@ -357,7 +357,7 @@ const Contact = () => {
                           Get In Touch
                         </span>
                       </h2>
-                      <p className="text-gray-300 text-sm mt-1">Let's start our creative journey</p>
+                      <p className="text-gray-300 text-sm mt-1">Let us start our creative journey</p>
                     </div>
                   </div>
 
@@ -443,7 +443,7 @@ const Contact = () => {
               </h2>
               
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-                Every collaboration is a journey of creativity and trust. Here's what my clients say about our 
+                Every collaboration is a journey of creativity and trust. Here is what my clients say about our 
                 <span className="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent font-medium"> artistic adventures</span> together.
               </p>
             </div>
@@ -476,7 +476,7 @@ const Contact = () => {
                   </div>
                   
                   <p className="text-gray-700 italic mb-6 leading-relaxed text-base group-hover:text-gray-800 transition-colors duration-300">
-                    "{review.comment}"
+                    {review.comment}
                   </p>
                   
                   <div className="flex items-center justify-between">
@@ -520,7 +520,7 @@ const Contact = () => {
                 </h3>
                 
                 <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto font-light">
-                  Join the growing family of satisfied clients and let's bring your 
+                  Join the growing family of satisfied clients and let us bring your 
                   <span className="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent font-medium"> wildest creative dreams</span> to life!
                 </p>
                 

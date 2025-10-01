@@ -174,7 +174,7 @@ export default function Home() {
                   Welcome to
                 </span>
                 <span className="block bg-gradient-to-r from-emerald-600 to-[#3A4D37] bg-clip-text text-transparent">
-                  Remmy's Art
+                  Remmy Art
                 </span>
                 <span className="block bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent text-3xl md:text-4xl mt-2">
                   Universe
@@ -196,7 +196,7 @@ export default function Home() {
 
               <p className="text-lg text-[#3A4D37]/90 leading-relaxed max-w-xl font-light">
                 Step into a realm where every stroke tells a story and every piece speaks to the soul. 
-                I'm <span className="font-medium text-[#3A4D37]">Remmy Adero</span>, 
+                Iam <span className="font-medium text-[#3A4D37]">Remmy Adero</span>, 
                 and this is my <span className="font-medium text-emerald-700">canvas of dreams</span>.
               </p>
 
@@ -397,7 +397,7 @@ export default function Home() {
                   {testimonials.map((testimonial, index) => (
                     <div key={index} className="px-6 py-8">
                       <div className="max-w-3xl mx-auto">
-                        <div className="text-5xl text-[#3A4D37]/20 mb-4">"</div>
+                        <div className="text-5xl text-[#3A4D37]/20 mb-4"></div>
                         <p className="text-xl md:text-2xl font-light italic text-[#3A4D37] leading-relaxed mb-6">
                           {testimonial.quote}
                         </p>
@@ -434,7 +434,7 @@ export default function Home() {
                 </h3>
 
                 <p className="text-lg text-[#3A4D37]/80 mb-8 max-w-2xl mx-auto font-light">
-                  Let's collaborate and create something extraordinary that captures your unique story through the power of art
+                  Let us collaborate and create something extraordinary that captures your unique story through the power of art
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-4">

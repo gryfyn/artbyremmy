@@ -109,7 +109,7 @@ export default function Footer() {
             {/* Artistic Quote or Tagline */}
             <div className="p-6 bg-gradient-to-br from-emerald-500/10 via-cyan-500/5 to-purple-500/10 rounded-2xl border border-emerald-400/20 backdrop-blur-sm">
               <p className="text-[#F1E9DC]/80 italic text-lg font-light leading-relaxed">
-                "Where pixels dance with purpose and creativity knows no bounds"
+                Where pixels dance with purpose and creativity knows no bounds
               </p>
               <div className="mt-3 w-20 h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full"></div>
             </div>

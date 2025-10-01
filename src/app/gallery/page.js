@@ -105,8 +105,8 @@ const Gallery = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-amber-50/50 to-rose-50/50 rounded-3xl backdrop-blur-sm border border-gradient-to-r border-[#3A4D37]/20"></div>
             
             {/* Decorative quote marks */}
-            <div className="absolute -left-6 -top-4 text-8xl text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-rose-400 font-serif opacity-60">"</div>
-            <div className="absolute -right-6 -bottom-4 text-8xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-purple-400 font-serif opacity-60 rotate-180">"</div>
+            <div className="absolute -left-6 -top-4 text-8xl text-transparent bg-clip-text bg-gradient-to-br from-amber-400 to-rose-400 font-serif opacity-60"></div>
+            <div className="absolute -right-6 -bottom-4 text-8xl text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-purple-400 font-serif opacity-60 rotate-180"></div>
             
             <div className="relative p-10">
               <p className="text-xl md:text-2xl italic text-[#3A4D37] font-light leading-relaxed">
@@ -287,7 +287,7 @@ const Gallery = () => {
           
           <div className="mt-10 max-w-lg mx-auto">
             <p className="text-2xl font-light italic text-transparent bg-clip-text bg-gradient-to-r from-[#3A4D37] via-teal-600 to-[#5A7A52] leading-relaxed">
-              "Art is not what you see, but what you make others see."
+              Art is not what you see, but what you make others see.
             </p>
             <div className="w-24 h-0.5 bg-gradient-to-r from-amber-400 to-purple-400 mx-auto mt-6"></div>
           </div>

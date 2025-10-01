@@ -194,8 +194,8 @@ export default function About() {
             
             <div className="relative p-12 md:p-16 bg-white/60 backdrop-blur-lg rounded-3xl border border-emerald-200/50 shadow-2xl">
               {/* Quote Marks */}
-              <div className="absolute top-8 left-8 text-6xl font-serif text-emerald-400/30">"</div>
-              <div className="absolute bottom-8 right-8 text-6xl font-serif text-purple-400/30 rotate-180">"</div>
+              <div className="absolute top-8 left-8 text-6xl font-serif text-emerald-400/30"></div>
+              <div className="absolute bottom-8 right-8 text-6xl font-serif text-purple-400/30 rotate-180"></div>
               
               <blockquote className="text-center relative z-10">
                 <p className="text-2xl md:text-3xl font-light text-gray-800 leading-relaxed mb-8 italic">
@@ -231,7 +231,7 @@ export default function About() {
               </span>
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's bring your vision to life through art that speaks, moves, and inspires.
+              Let us bring your vision to life through art that speaks, moves, and inspires.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">

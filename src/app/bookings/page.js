@@ -475,7 +475,7 @@ export default function Bookings() {
                   </div>
                   
                   <p className="text-sm text-[#3A4D37]/80 italic mb-4 leading-relaxed">
-                    "{review.comment}"
+                    {review.comment}
                   </p>
                   
                   <div className="flex items-center justify-between">
