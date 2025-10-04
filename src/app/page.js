@@ -166,44 +166,6 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Stats Grid - Slide from Different Directions */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 max-w-3xl mx-auto">
-              {[
-                { number: "500+", label: "Artworks", icon: Brush, animation: "animate-slideInLeft" },
-                { number: "200+", label: "Clients", icon: Users, animation: "animate-slideInBottom" },
-                { number: "50+", label: "Murals", icon: Sparkles, animation: "animate-slideInBottom" },
-                { number: "5+", label: "Years", icon: Award, animation: "animate-slideInRight" }
-              ].map((stat, index) => (
-                <div key={index} className={`${stat.animation} text-center group`} style={{animationDelay: `${0.5 + index * 0.1}s`}}>
-                  <div className="relative">
-                    <div className="absolute -inset-2 bg-gradient-to-br from-[#3A4D37]/10 to-emerald-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm"></div>
-                    <div className="relative bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-[#3A4D37]/10 group-hover:border-[#3A4D37]/30 transition-all duration-500">
-                      <stat.icon className="w-6 h-6 mx-auto mb-2 text-[#3A4D37] group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-2xl font-bold text-[#3A4D37] mb-1">{stat.number}</div>
-                      <div className="text-xs text-[#3A4D37]/60 uppercase tracking-wide">{stat.label}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Featured Highlights - Slide from Right */}
-            <div className="grid md:grid-cols-3 gap-4 pt-8 animate-slideInRight" style={{animationDelay: '0.8s'}}>
-              {[
-                { icon: Palette, title: "Digital Art", desc: "Modern portraits & illustrations", gradient: "from-emerald-500 to-teal-600" },
-                { icon: Brush, title: "Traditional", desc: "Pencil & charcoal sketches", gradient: "from-[#3A4D37] to-emerald-700" },
-                { icon: Sparkles, title: "Murals", desc: "Large-scale wall paintings", gradient: "from-orange-500 to-amber-600" }
-              ].map((item, index) => (
-                <div key={index} className="group relative bg-white/70 backdrop-blur-sm rounded-xl p-5 border border-[#3A4D37]/10 hover:border-[#3A4D37]/30 transition-all duration-500 hover:shadow-lg">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 rounded-xl transition-all duration-500`}></div>
-                  <div className="relative">
-                    <item.icon className="w-8 h-8 mx-auto mb-3 text-[#3A4D37] group-hover:scale-110 transition-transform duration-300" />
-                    <h3 className="text-base font-bold text-[#3A4D37] mb-1">{item.title}</h3>
-                    <p className="text-xs text-[#3A4D37]/60">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
 
             {/* Scroll Indicator - Bounce Animation */}
             <div className="flex flex-col items-center space-y-2 text-[#3A4D37]/50 pt-6 animate-bounce">
