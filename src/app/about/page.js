@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { FaMapMarkerAlt, FaPalette, FaPencilAlt, FaPlay } from "react-icons/fa";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
@@ -21,10 +22,12 @@ export default function About() {
             <div className="relative">
               <div className="absolute -inset-6 bg-[#52794B]/10 rounded-full blur-2xl group-hover:bg-[#52794B]/20 transition-all duration-700"></div>
               <div className="relative">
-                <img
+                <Image
                   src="/remmy3.PNG"
                   alt="Remmy Adero - Digital Artist"
                   className="w-56 h-56 rounded-full object-cover border-4 border-[#F5F1E8] shadow-2xl relative z-10"
+                  width={224}
+                  height={224}  
                 />
                 {/* Floating Icons */}
                 <div className="absolute top-2 right-2 bg-[#52794B] p-3 rounded-full shadow-lg">
@@ -79,10 +82,12 @@ export default function About() {
             <div className="relative group">
               <div className="absolute -inset-4 bg-[#52794B]/10 rounded-3xl blur-xl group-hover:bg-[#52794B]/20 transition-all duration-700"></div>
               <div className="relative">
-                <img
+                <Image
                   src="/feature4.jpeg"
                   alt="Remmy's Artistic Work"
                   className="rounded-2xl object-cover w-full h-[500px] shadow-2xl transform group-hover:scale-105 transition-all duration-700"
+                  width={600}  
+                  height={500}
                 />
               </div>
             </div>
@@ -142,7 +147,7 @@ export default function About() {
             
             <blockquote className="text-center relative z-10">
               <p className="text-2xl md:text-3xl font-light text-[#F5F1E8] leading-relaxed mb-8 italic">
-                "Art is not what you see, but what you make others see. Every stroke is a heartbeat, every color an emotion."
+                Art is not what you see, but what you make others see. Every stroke is a heartbeat, every color an emotion.
               </p>
               
               <div className="flex items-center justify-center space-x-4">
@@ -193,7 +198,7 @@ export default function About() {
               Ready to Create Something <span className="text-[#52794B] italic">Amazing?</span>
             </h3>
             <p className="text-lg text-[#2D3E2A]/70 mb-8 max-w-2xl mx-auto">
-              Let's bring your vision to life through art that speaks, moves, and inspires.
+              Let us bring your vision to life through art that speaks, moves, and inspires.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">

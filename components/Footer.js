@@ -43,7 +43,7 @@ export default function Footer() {
             {/* Quote Section */}
             <div className="p-6 bg-[#F5F1E8]/5 backdrop-blur-sm rounded-2xl border border-[#F5F1E8]/10">
               <p className="text-[#F5F1E8]/80 italic text-base leading-relaxed">
-                "Where creativity meets craftsmanship, and every stroke tells a story."
+                Where creativity meets craftsmanship, and every stroke tells a story.
               </p>
               <div className="mt-3 w-16 h-0.5 bg-[#F5F1E8]/30 rounded-full"></div>
             </div>

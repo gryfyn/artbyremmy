@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Sparkles, Palette, Heart, Star, ArrowDown, Play, Eye, Brush, Award, Users, Clock } from "lucide-react";
 import Header from "../../components/Header";
@@ -8,33 +9,9 @@ export default function Home() {
   const [showHeader, setShowHeader] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [particles, setParticles] = useState([]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowHeader(window.scrollY > 600);
-    };
-    
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
-  // Auto-rotate testimonials
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
+  // Define testimonials BEFORE the useEffect that uses it
   const testimonials = [
     {
       quote: "Art speaks louder than words — and Remmy's work proves it with every stroke.",
@@ -62,6 +39,46 @@ export default function Home() {
     { id: 6, title: "Album Covers", category: "Commercial", image: "/album-cover.PNG", gradient: "from-indigo-500 to-purple-600" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowHeader(window.scrollY > 600);
+    };
+    
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  // Generate particles only on client side to avoid hydration mismatch
+  useEffect(() => {
+    const generatedParticles = Array.from({ length: 15 }, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      width: 1 + Math.random() * 2,
+      height: 1 + Math.random() * 2,
+      animationDelay: Math.random() * 5,
+      animationDuration: 8 + Math.random() * 12
+    }));
+    setParticles(generatedParticles);
+  }, []);
+
+  // Auto-rotate testimonials - now testimonials is defined above
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
   return (
     <div className="relative bg-[#F1E9DC] text-[#3A4D37] overflow-hidden">
       {/* Mouse Follow Effect */}
@@ -76,7 +93,6 @@ export default function Home() {
       {/* Conditional Header */}
       {showHeader && (
         <div className="fixed top-0 left-0 right-0 z-50 animate-fadeIn">
-          {/* Your Header component would go here */}
           <Header/>
         </div>
       )}
@@ -87,20 +103,20 @@ export default function Home() {
           <div className="absolute top-16 left-[8%] w-64 h-64 bg-gradient-to-br from-[#3A4D37]/8 to-emerald-400/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-[10%] w-56 h-56 bg-gradient-to-tl from-amber-400/8 to-orange-400/5 rounded-full blur-3xl"></div>
           
-          {/* Minimal floating particles */}
-          {[...Array(15)].map((_, i) => (
+          {/* Minimal floating particles - only render on client */}
+          {particles.map((particle) => (
             <div
-              key={i}
+              key={particle.id}
               className="absolute animate-float opacity-10"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${1 + Math.random() * 2}px`,
-                height: `${1 + Math.random() * 2}px`,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                width: `${particle.width}px`,
+                height: `${particle.height}px`,
                 background: '#3A4D37',
                 borderRadius: '50%',
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${8 + Math.random() * 12}s`
+                animationDelay: `${particle.animationDelay}s`,
+                animationDuration: `${particle.animationDuration}s`
               }}
             />
           ))}
@@ -245,7 +261,7 @@ export default function Home() {
       <section id="portfolio" className="py-20 bg-gradient-to-br from-[#3A4D37] to-emerald-900 text-[#F1E9DC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <img src="/logo.PNG" alt="Logo" className="w-64 mx-auto mb-6 opacity-90" />
+            <Image src="/logo.PNG" alt="Logo" className="w-64 mx-auto mb-6 opacity-90" width={200} height={150}/>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#F1E9DC]">
               Portfolio Showcase
             </h2>
@@ -258,7 +274,7 @@ export default function Home() {
             {portfolioItems.map((item, index) => (
               <div key={item.id} className="group relative bg-[#F1E9DC]/95 rounded-2xl overflow-hidden transform hover:-translate-y-4 transition-all duration-700 shadow-xl hover:shadow-2xl">
                 <div className="relative h-80 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700" />
+                  <Image src={item.image} alt={item.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700" width={150} height={300}/>
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-[#3A4D37]/90 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <div className="absolute bottom-4 left-4 right-4">
@@ -293,7 +309,7 @@ export default function Home() {
 
           <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-[#3A4D37]/10">
             <div className="text-center">
-              <div className="text-6xl text-[#3A4D37]/20 mb-4">"</div>
+              <div className="text-6xl text-[#3A4D37]/20 mb-4"></div>
               <p className="text-2xl font-light italic text-[#3A4D37] mb-8 leading-relaxed">
                 {testimonials[currentTestimonial].quote}
               </p>
@@ -327,7 +343,7 @@ export default function Home() {
             Ready to Create Something Amazing?
           </h2>
           <p className="text-xl text-[#F1E9DC]/80 mb-10 font-light">
-            Let's collaborate and bring your artistic vision to life
+            Let us collaborate and bring your artistic vision to life
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
