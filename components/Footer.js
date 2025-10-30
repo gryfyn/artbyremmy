@@ -28,8 +28,10 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <div className="relative group">
               <h3 className="text-4xl font-bold tracking-wide">
-                <span className="text-[#F5F1E8]">Remmy</span>{" "}
-                <span className="text-[#F5F1E8]/80">Adero</span>
+                <span className="text-[#F5F1E8]/80">Art</span>{" "}
+                <span className="text-[#F5F1E8]/80">By</span>{" "}
+                <span className="text-[#F5F1E8]">Remmy</span>
+                
               </h3>
               <div className="mt-2 h-1 w-24 bg-[#F5F1E8]/30 rounded-full"></div>
             </div>

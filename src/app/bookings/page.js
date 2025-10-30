@@ -8,21 +8,16 @@ import {
   User,
   DollarSign,
   Star,
-  Clock,
   CheckCircle,
-  Users,
-  Award,
-  Heart,
   MessageSquare,
   Sparkles,
-  Camera,
   Brush,
   Zap,
   Shield,
+  Award,
 } from "lucide-react";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";  
-
+import Footer from "../../../components/Footer";
 
 export default function Bookings() {
   const [formData, setFormData] = useState({
@@ -30,13 +25,11 @@ export default function Bookings() {
     contact: "",
     email: "",
     artType: "Digital",
-    size: "",
     message: "",
     deadline: ""
   });
   
   const [focusedInput, setFocusedInput] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -51,39 +44,20 @@ export default function Bookings() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     console.log("Booking submitted:", formData);
     setShowSuccess(true);
     setIsSubmitting(false);
     
-    // Reset after showing success
     setTimeout(() => {
       setFormData({
         name: "", contact: "", email: "", artType: "Digital", 
-        size: "", message: "", deadline: ""
+        message: "", deadline: ""
       });
-      setSelectedSize("");
       setShowSuccess(false);
     }, 3000);
   };
-
-  const digitalPrices = [
-    { size: "4x6", price: "20,000", popular: false, description: "Perfect for social media" },
-    { size: "A4", price: "50,000", popular: true, description: "Most popular choice" },
-    { size: "A3", price: "70,000", popular: false, description: "Great for framing" },
-    { size: "A2", price: "100,000", popular: false, description: "Gallery quality" },
-    { size: "A1", price: "200,000", popular: false, description: "Premium large format" },
-  ];
-
-  const pencilPrices = [
-    { size: "4x6", price: "50,000", popular: false, description: "Intimate portrait size" },
-    { size: "A4", price: "150,000", popular: true, description: "Classic portrait size" },
-    { size: "A3", price: "220,000", popular: false, description: "Detailed artwork" },
-    { size: "A2", price: "300,000", popular: false, description: "Museum quality" },
-    { size: "A1", price: "450,000", popular: false, description: "Masterpiece size" },
-  ];
 
   const reviews = [
     {
@@ -142,9 +116,6 @@ export default function Bookings() {
     },
   ];
 
-  const currentPrices = formData.artType === "Digital" ? digitalPrices : pencilPrices;
-  const selectedPrice = currentPrices.find(p => p.size === selectedSize);
-
   return (
     <div className="min-h-screen flex flex-col bg-[#F1E9DC] relative overflow-hidden">
       <Header />
@@ -154,13 +125,12 @@ export default function Bookings() {
         <div className="absolute top-1/2 right-16 w-96 h-96 bg-gradient-to-tl from-teal-400/6 to-emerald-600/6 rounded-full blur-3xl" style={{animationDelay: '2s'}}></div>
         <div className="absolute bottom-32 left-1/3 w-72 h-72 bg-gradient-to-r from-lime-400/8 to-green-500/8 rounded-full blur-2xl animate-pulse" style={{animationDelay: '4s'}}></div>
         
-        {/* Floating Elements */}
         <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-emerald-400/40 rounded-full animate-bounce"></div>
         <div className="absolute bottom-1/3 left-1/4 w-2 h-2 bg-teal-400/50 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
         <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-lime-400/40 rounded-full animate-bounce" style={{animationDelay: '3s'}}></div>
       </div>
 
-      <main className="flex-1 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 mt-16 sm:mt-20">
+      <main className="flex-1 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
         {/* Hero Section */}
         <section className="text-center mb-8 sm:mb-12 md:mb-16 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-[#3A4D37]/10 to-emerald-500/10 blur-3xl rounded-full transform -translate-y-4"></div>
@@ -188,19 +158,18 @@ export default function Bookings() {
           </div>
         </section>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 md:gap-12 mb-12 sm:mb-16 md:mb-20">
-          {/* Booking Form - 3 columns */}
-          <div className="lg:col-span-3">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#3A4D37]/5 to-emerald-500/5 rounded-2xl blur-xl"></div>
-              
-              <div className="relative bg-white/95 backdrop-blur-xl rounded-xl sm:rounded-2xl shadow-2xl border border-[#3A4D37]/20 p-4 sm:p-6 md:p-8">
-                <div className="flex items-center mb-6 sm:mb-8">
-                  <Calendar className="w-6 sm:w-7 h-6 sm:h-7 text-emerald-600 mr-2 sm:mr-3 flex-shrink-0" />
-                  <h2 className="text-xl sm:text-2xl font-bold text-[#3A4D37]">Book Your Commission</h2>
-                </div>
+        {/* Booking Form - Full Width */}
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#3A4D37]/5 to-emerald-500/5 rounded-2xl blur-xl"></div>
+            
+            <div className="relative bg-white/95 backdrop-blur-xl rounded-xl sm:rounded-2xl shadow-2xl border border-[#3A4D37]/20 p-4 sm:p-6 md:p-8">
+              <div className="flex items-center mb-6 sm:mb-8">
+                <Calendar className="w-6 sm:w-7 h-6 sm:h-7 text-emerald-600 mr-2 sm:mr-3 flex-shrink-0" />
+                <h2 className="text-xl sm:text-2xl font-bold text-[#3A4D37]">Book Your Commission</h2>
+              </div>
 
+              <div>
                 <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                   <div className="group">
                     <label className="block text-sm font-semibold mb-2 text-[#3A4D37] group-focus-within:text-emerald-600 transition-colors">
@@ -268,10 +237,7 @@ export default function Bookings() {
                     </label>
                     <select
                       value={formData.artType}
-                      onChange={(e) => {
-                        handleInputChange('artType', e.target.value);
-                        setSelectedSize(""); // Reset size when changing art type
-                      }}
+                      onChange={(e) => handleInputChange('artType', e.target.value)}
                       className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-[#3A4D37]/20 rounded-xl bg-white/80 text-[#3A4D37] focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/20 transition-all duration-300 text-sm sm:text-base"
                       required
                     >
@@ -335,75 +301,6 @@ export default function Bookings() {
                     )}
                   </span>
                 </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Pricing Section - 2 columns */}
-          <div className="lg:col-span-2">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-600/10 rounded-2xl blur-xl"></div>
-              
-              <div className="relative bg-gradient-to-br from-[#3A4D37] to-emerald-800 rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 text-[#F1E9DC] border border-[#3A4D37]/30">
-                <div className="flex items-center mb-6 sm:mb-8">
-                  <DollarSign className="w-6 sm:w-7 h-6 sm:h-7 text-emerald-400 mr-2 sm:mr-3 flex-shrink-0" />
-                  <h2 className="text-xl sm:text-2xl font-bold">Pricing & Sizes</h2>
-                </div>
-
-                <div className="space-y-4 sm:space-y-6">
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 flex items-center">
-                      <div className={`w-3 sm:w-4 h-3 sm:h-4 rounded-full mr-2 sm:mr-3 flex-shrink-0 ${formData.artType === 'Digital' ? 'bg-blue-400' : 'bg-gray-400'}`}></div>
-                      {formData.artType} Art Pricing
-                    </h3>
-                    
-                    <div className="space-y-2 sm:space-y-3">
-                      {currentPrices.map((item, i) => (
-                        <div
-                          key={i}
-                          onClick={() => {
-                            setSelectedSize(item.size);
-                            handleInputChange('size', item.size);
-                          }}
-                          className={`group cursor-pointer p-3 sm:p-4 rounded-xl border-2 transition-all duration-300 ${
-                            selectedSize === item.size
-                              ? "border-emerald-400 bg-emerald-400/10 shadow-lg"
-                              : item.popular
-                              ? "border-[#F1E9DC]/40 bg-[#F1E9DC]/10 hover:border-emerald-400/50"
-                              : "border-[#F1E9DC]/20 bg-[#F1E9DC]/5 hover:border-[#F1E9DC]/40"
-                          }`}
-                        >
-                          <div className="flex justify-between items-start mb-2">
-                            <div className="flex items-center flex-wrap gap-2">
-                              <span className="font-semibold text-base sm:text-lg">{item.size}</span>
-                              {item.popular && (
-                                <span className="px-2 py-0.5 sm:py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-xs font-bold rounded-full text-white whitespace-nowrap">
-                                  POPULAR
-                                </span>
-                              )}
-                            </div>
-                            <span className="font-bold text-lg sm:text-xl text-emerald-400 whitespace-nowrap ml-2">{item.price} UGX</span>
-                          </div>
-                          <p className="text-xs sm:text-sm text-[#F1E9DC]/70">{item.description}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {selectedPrice && (
-                    <div className="bg-emerald-500/20 rounded-xl p-3 sm:p-4 border border-emerald-400/30">
-                      <h4 className="font-semibold mb-2 flex items-center text-sm sm:text-base">
-                        <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5 text-emerald-400 mr-2 flex-shrink-0" />
-                        Selected Package
-                      </h4>
-                      <div className="flex justify-between items-center flex-wrap gap-2">
-                        <span className="text-sm sm:text-base">{selectedPrice.size} {formData.artType} Art</span>
-                        <span className="font-bold text-lg sm:text-xl text-emerald-400 whitespace-nowrap">{selectedPrice.price} UGX</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-[#F1E9DC]/80 mt-1">{selectedPrice.description}</p>
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           </div>
