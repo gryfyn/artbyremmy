@@ -1,6 +1,15 @@
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 
+// Parse CLOUDINARY_URL if individual credentials aren't provided
+if (process.env.CLOUDINARY_URL && !process.env.CLOUDINARY_CLOUD_NAME) {
+  // CLOUDINARY_URL format: cloudinary://API_KEY:API_SECRET@CLOUD_NAME
+  const url = new URL(process.env.CLOUDINARY_URL);
+  process.env.CLOUDINARY_CLOUD_NAME = url.hostname;
+  process.env.CLOUDINARY_API_KEY = url.username;
+  process.env.CLOUDINARY_API_SECRET = url.password;
+}
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -16,9 +25,8 @@ export async function GET(req) {
   }
 
   try {
-    // Use Cloudinary's SDK instead of fetch()
     const result = await cloudinary.search
-      .expression(`folder=${folder}/*`)
+      .expression(`folder:${folder}`)
       .sort_by("public_id", "desc")
       .max_results(300)
       .execute();
@@ -38,3 +46,4 @@ export async function GET(req) {
     );
   }
 }
+
