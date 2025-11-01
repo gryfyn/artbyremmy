@@ -60,7 +60,7 @@ export default function Footer() {
               </h4>
               
               <ul className="space-y-4">
-                {["About", "Services", "Portfolio", "Contact"].map((item) => (
+                {["About", "Gallery", "Bookings", "Contact"].map((item) => (
                   <li key={item} className="group">
                     <Link 
                       href={`/${item.toLowerCase()}`} 
@@ -111,11 +111,11 @@ export default function Footer() {
               {/* Social Icons Grid */}
               <div className="grid grid-cols-3 gap-3 mb-8">
                 {[
-                  { icon: FaFacebook, href: "#" },
+                  
                   { icon: FaInstagram, href: "#" },
-                  { icon: FaTwitter, href: "#" },
+                  
                   { icon: FaLinkedin, href: "#" },
-                  { icon: FaWhatsapp, href: "#" },
+                  
                   { icon: FaYoutube, href: "#" }
                 ].map(({ icon: Icon, href }, index) => (
                   <a
