@@ -184,7 +184,7 @@ export default function Home() {
       <div className="backdrop-blur-md bg-white/10 rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl animate-fadeInUp animation-delay-300">
         <div className="mb-3 sm:mb-4">
           <Image 
-            src="/logo2.PNG" 
+            src="/logo2.png" 
             alt="Remmy Art Logo" 
             width={200} 
             height={130}
