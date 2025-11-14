@@ -49,7 +49,7 @@ export default function Home() {
   const portfolioItems = [
     { id: 1, title: "Digital Portrait", category: "Digital Art", image: "/7.jpeg", gradient: "from-emerald-500 to-cyan-500" },
     { id: 2, title: "Pencil Sketch", category: "Traditional", image: "/4.jpeg", gradient: "from-gray-600 to-gray-800" },
-    { id: 3, title: "Mural Work", category: "Street Art", image: "/mural-work.PNG", gradient: "from-orange-500 to-red-600" },
+    { id: 3, title: "Mural Work", category: "Street Art", image: "/home-mural.PNG", gradient: "from-orange-500 to-red-600" },
     { id: 4, title: "Character Design", category: "Illustration", image: "/character-design.PNG", gradient: "from-purple-500 to-pink-600" },
     { id: 5, title: "Street Art", category: "Urban Art", image: "/streetart.PNG", gradient: "from-yellow-500 to-orange-600" },
     { id: 6, title: "Album Covers", category: "Commercial", image: "/album-cover.PNG", gradient: "from-indigo-500 to-purple-600" },
