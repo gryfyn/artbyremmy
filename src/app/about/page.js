@@ -4,12 +4,33 @@ import { FaMapMarkerAlt, FaPalette, FaPencilAlt, FaPlay } from "react-icons/fa";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import { useEffect, useRef, useState } from "react";
+import "../globals.css";
+import { Roboto_Slab, Headland_One } from "next/font/google";
+
+
+
+
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto-slab",
+});
+
+const headlandOne = Headland_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-headland-one",
+});
+
 
 export default function About() {
+  
   const scrollRef = useRef(null);
   const [visibleSections, setVisibleSections] = useState(new Set());
   const [currentProcess, setCurrentProcess] = useState(0);
   const processRef = useRef(null);
+
+  
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -38,6 +59,8 @@ export default function About() {
     { step: "03", title: "Creation", desc: "Digital refinement" },
     { step: "04", title: "Delivery", desc: "Final masterpiece" },
   ];
+
+ 
 
   useEffect(() => {
     if (visibleSections.has("process")) {
@@ -72,20 +95,15 @@ export default function About() {
                 width={224}
                 height={224}
               />
-              <div className={`absolute top-2 right-2 bg-[#52794B] p-3 rounded-full shadow-lg ${visibleSections.has("hero") ? "animate-bounce animate-delay-300" : ""}`}>
-                <FaPalette className="text-[#F5F1E8] text-lg" />
-              </div>
-              <div className={`absolute bottom-2 left-2 bg-[#3E5E38] p-3 rounded-full shadow-lg ${visibleSections.has("hero") ? "animate-bounce animate-delay-400" : ""}`}>
-                <FaPencilAlt className="text-[#F5F1E8] text-lg" />
-              </div>
+              
             </div>
           </div>
 
-          <h1 className={`text-6xl md:text-7xl font-bold mt-8 mb-6 text-[#2D3E2A] ${visibleSections.has("hero") ? "animate-fade animate-delay-500" : "opacity-0"}`}>
+          <h1 className={`text-6xl md:text-6xl font-light mt-8 mb-6 text-[#2D3E2A] ${visibleSections.has("hero") ? "animate-fade animate-delay-500" : "opacity-0"} ${headlandOne.className}`}>
             Remmy <span className="text-[#52794B]">Adero</span>
           </h1>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className={`flex flex-wrap justify-center gap-4 mb-8 ${robotoSlab.className}`}>
             {[
               { icon: FaPalette, label: "Digital Artist" },
               { icon: FaPencilAlt, label: "Sketch Artist" },
@@ -106,7 +124,7 @@ export default function About() {
 
           <div className={`flex items-center justify-center gap-3 text-lg text-[#2D3E2A]/70 ${visibleSections.has("hero") ? "animate-fade animate-delay-800" : "opacity-0"}`}>
             <FaMapMarkerAlt className="text-[#52794B]" />
-            <span className="font-medium">Kampala, Uganda</span>
+            <span className={`font-medium ${robotoSlab.className}`}>Kampala, Uganda</span>
           </div>
 
           <div className={`flex items-center justify-center space-x-4 mt-8 ${visibleSections.has("hero") ? "animate-fade animate-delay-900" : "opacity-0"}`}>
@@ -132,11 +150,13 @@ export default function About() {
             </div>
 
             <div className={`space-y-8 ${visibleSections.has("about") ? "animate-fade animate-delay-400" : "opacity-0"}`}>
-              <h2 className="text-5xl md:text-6xl font-bold text-[#2D3E2A] leading-tight">
-                Vision meets <span className="text-[#52794B] italic">Reality</span>
+              <h2 className={`text-5xl md:text-5xl font-bold text-[#2D3E2A] leading-tight ${headlandOne.className}`}>
+                Vision meets <span className="text-[#52794B] ">Reality</span>
               </h2>
-              <div className="space-y-6 text-[#2D3E2A]/80 leading-relaxed text-lg">
-                <p className={`${visibleSections.has("about") ? "animate-slide-up animate-delay-500" : ""}`}>
+              <div
+  className={`space-y-6 text-[#2D3E2A]/80 leading-relaxed content-center italic text-lg ${robotoSlab.className}`}
+>
+                <p className={`${visibleSections.has("about") ? "animate-slide-up animate-delay-500" : ""} content-center`}>
                   A visionary artist who transforms imagination into breathtaking reality through the power of digital and traditional mediums.
                 </p>
                 <p className={`${visibleSections.has("about") ? "animate-slide-up animate-delay-600" : ""}`}>
@@ -156,7 +176,7 @@ export default function About() {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className={`p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-[#52794B]/10 hover:border-[#52794B]/30 transition-all duration-300 ${visibleSections.has("about") ? "animate-slide-up" : "opacity-0"}`}
+                    className={`p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-[#52794B]/10 hover:border-[#52794B]/30 transition-all duration-300 ${visibleSections.has("about") ? "animate-slide-up" : "opacity-0"} ${robotoSlab.className}`}
                     style={{ animationDelay: `${(index + 8) * 100}ms` }}
                   >
                     <div className="flex justify-between items-center mb-2">
@@ -176,31 +196,14 @@ export default function About() {
           </div>
         </section>
 
-        <section className="max-w-5xl mx-auto px-6 mb-24" data-section="quote">
-          <div className={`relative p-12 md:p-16 bg-[#52794B] rounded-3xl shadow-2xl overflow-hidden ${visibleSections.has("quote") ? "animate-fade-scale animate-delay-200" : "opacity-0"}`}>
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5F1E8] rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F5F1E8] rounded-full blur-3xl animate-pulse"></div>
-            </div>
-            <blockquote className="text-center relative z-10">
-              <p className={`text-2xl md:text-3xl font-light text-[#F5F1E8] leading-relaxed mb-8 italic ${visibleSections.has("quote") ? "animate-slide-up animate-delay-300" : ""}`}>
-                Art is not what you see, but what you make others see. Every stroke is a heartbeat, every color an emotion.
-              </p>
-              <div className={`flex items-center justify-center space-x-4 ${visibleSections.has("quote") ? "animate-slide-up animate-delay-400" : ""}`}>
-                <div className="w-16 h-px bg-[#F5F1E8]/30"></div>
-                <cite className="text-lg font-medium text-[#F5F1E8]/90 not-italic">Remmy Adero</cite>
-                <div className="w-16 h-px bg-[#F5F1E8]/30"></div>
-              </div>
-            </blockquote>
-          </div>
-        </section>
+        
 
         <section className="max-w-4xl mx-auto px-6 mb-24" data-section="process">
           <div className={`text-center mb-12 ${visibleSections.has("process") ? "animate-fade animate-delay-200" : "opacity-0"}`}>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2D3E2A] mb-4">
-              The Creative <span className="text-[#52794B] italic">Process</span>
+            <h2 className={`text-4xl md:text-5xl font-bold text-[#2D3E2A] mb-4 ${headlandOne.className}`}>
+              The Creative <span className="text-[#52794B]">Process</span>
             </h2>
-            <p className={`text-lg text-[#2D3E2A]/70 max-w-2xl mx-auto ${visibleSections.has("process") ? "animate-slide-up animate-delay-300" : ""}`}>
+            <p className={`text-lg text-[#2D3E2A]/70 max-w-2xl mx-auto ${visibleSections.has("process") ? "animate-slide-up animate-delay-300" : ""} ${robotoSlab.className }`}>
               From concept to completion, every project follows a journey of discovery and refinement
             </p>
           </div>
@@ -243,7 +246,7 @@ export default function About() {
                                   key={i}
                                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
                                     i === currentProcess ? 'bg-[#52794B] w-6' : 'bg-[#52794B]/30'
-                                  }`}
+                                  } ${robotoSlab.className}`}
                                 />
                               ))}
                             </div>
@@ -260,10 +263,10 @@ export default function About() {
 
         <section className="mb-24" data-section="timeline">
           <div className={`max-w-7xl mx-auto px-6 text-center mb-16 ${visibleSections.has("timeline") ? "animate-fade animate-delay-200" : "opacity-0"}`}>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2D3E2A] mb-4">
-              Artistic <span className="text-[#52794B] italic">Timeline</span>
+            <h2 className={`text-4xl md:text-5xl font-bold text-[#2D3E2A] mb-4 ${headlandOne.className}` }>
+              Artistic <span className="text-[#52794B] ">Timeline</span>
             </h2>
-            <p className={`text-lg text-[#2D3E2A]/70 max-w-2xl mx-auto ${visibleSections.has("timeline") ? "animate-slide-up animate-delay-300" : ""}`}>
+            <p className={`text-lg text-[#2D3E2A]/70 max-w-2xl mx-auto ${visibleSections.has("timeline") ? "animate-slide-up animate-delay-300" : ""} ${robotoSlab.className}`}>
               A visual journey through the milestones of my creative career
             </p>
           </div>
@@ -307,24 +310,25 @@ export default function About() {
           </div>
         </section>
 
-        <section className="max-w-4xl mx-auto px-6 mb-20" data-section="cta">
-          <div className={`text-center p-12 bg-[#52794B]/5 rounded-3xl backdrop-blur-sm border border-[#52794B]/10 ${visibleSections.has("cta") ? "animate-slide-up animate-delay-300" : "opacity-0"}`}>
-            <h3 className="text-3xl md:text-4xl font-bold text-[#2D3E2A] mb-6">
-              Ready to Create Something <span className="text-[#52794B] italic">Amazing?</span>
-            </h3>
-            <p className="text-lg text-[#2D3E2A]/70 mb-8 max-w-2xl mx-auto">
-              Let us bring your vision to life through art that speaks, moves, and inspires.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className={`px-8 py-4 bg-[#52794B] hover:bg-[#3E5E38] text-[#F5F1E8] font-medium rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 ${visibleSections.has("cta") ? "animate-bounce animate-delay-400" : ""}`}>
-                View Portfolio
-              </button>
-              <button className={`px-8 py-4 bg-[#F5F1E8] border-2 border-[#52794B] text-[#52794B] hover:bg-[#52794B]/5 font-medium rounded-full transition-all duration-300 transform hover:scale-105 ${visibleSections.has("cta") ? "animate-bounce animate-delay-500" : ""}`}>
-                Get In Touch
-              </button>
+        <section className="max-w-5xl mx-auto px-6 mb-24" data-section="quote">
+          <div className={`relative p-8 md:p-10 bg-[#52794B] rounded-3xl shadow-2xl overflow-hidden ${visibleSections.has("quote") ? "animate-fade-scale animate-delay-200" : "opacity-0"}`}>
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5F1E8] rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F5F1E8] rounded-full blur-3xl animate-pulse"></div>
             </div>
+            <blockquote className="text-center relative z-10">
+              <p className={`text-2xl md:text-1xl font-light text-[#F5F1E8] leading-relaxed mb-8 italic ${visibleSections.has("quote") ? "animate-slide-up animate-delay-300" : ""} ${robotoSlab.className}`}>
+                Art is not what you see, but what you make others see. Every stroke is a heartbeat, every color an emotion.
+              </p>
+              <div className={`flex items-center justify-center space-x-4 ${visibleSections.has("quote") ? "animate-slide-up animate-delay-400" : ""}`}>
+                <div className="w-16 h-px bg-[#F5F1E8]/30"></div>
+                <cite className="text-lg font-medium text-[#F5F1E8]/90 not-italic">Remmy Adero</cite>
+                <div className="w-16 h-px bg-[#F5F1E8]/30"></div>
+              </div>
+            </blockquote>
           </div>
         </section>
+        
       </div>
       <Footer />
       <style jsx global>{`

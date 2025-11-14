@@ -4,7 +4,22 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import { Roboto_Slab, Arvo, Headland_One } from "next/font/google";
 
+
+
+
+const robotoSlab = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto-slab",
+});
+
+const headlandOne = Headland_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-headland-one",
+});
 const categories = [
   { name: "Digital", folder: "digital" },
   { name: "Character Design", folder: "characterdesign" },
@@ -114,16 +129,14 @@ export default function GalleryPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-20 text-center bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+      <section className={`relative py-20 text-center bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden ${robotoSlab.className}`}>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-gradient-to-br from-teal-300/10 to-purple-300/10 blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-10 w-64 h-64 rounded-full bg-gradient-to-bl from-purple-300/10 to-teal-300/10 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="relative z-10">
-          <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#3A4D37] via-teal-600 to-purple-600 mb-10 tracking-tight">
-            Gallery
-          </h1>
+         
 
           {/* Category Buttons */}
           <div className="flex flex-wrap justify-center gap-3 mt-8 px-4">
@@ -131,7 +144,7 @@ export default function GalleryPage() {
               <button
                 key={cat.folder}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 ${
+                className={`px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 rounded-xl ${
                   activeCategory.folder === cat.folder
                     ? "bg-gradient-to-r from-[#3A4D37] to-teal-700 text-white shadow-lg scale-105"
                     : "bg-white text-[#3A4D37] border-2 border-gray-200 hover:border-teal-300 hover:shadow-md"

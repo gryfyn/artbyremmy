@@ -24,7 +24,6 @@ export default function Header() {
     { name: "Home", href: "/", icon: Home, color: "from-amber-400 to-amber-500" },
     { name: "About", href: "/about", icon: User, color: "from-rose-400 to-rose-500" },
     { name: "Gallery", href: "/gallery", icon: Image, color: "from-emerald-400 to-emerald-500" },
-    { name: "Bookings", href: "/bookings", icon: Calendar, color: "from-purple-400 to-purple-500" },
     { name: "Contact", href: "/contacts", icon: Mail, color: "from-orange-400 to-orange-500" },
   ];
 

@@ -8,10 +8,23 @@ import {
   FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
+import { Source_Sans_3, PT_Serif } from "next/font/google";
+
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans-3",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
+const ptSerif = PT_Serif({
+  variable: "--font-pt-serif",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-[#2D3E2A] via-[#3A4D37] to-[#52794B] text-[#F5F1E8] overflow-hidden">
+    <footer className={`relative bg-gradient-to-br from-[#2D3E2A] via-[#3A4D37] to-[#52794B] text-[#F5F1E8] overflow-hidden ${ptSerif.className}`}>
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
         <div className="absolute top-20 left-[10%] w-96 h-96 bg-gradient-to-br from-[#F5F1E8]/10 to-transparent rounded-full blur-3xl"></div>
