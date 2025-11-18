@@ -270,10 +270,7 @@ export default function Home() {
                 <span className="inline-block bg-[#F1E9DC]/20 backdrop-blur-sm text-[#F1E9DC] px-4 py-2 rounded-full text-xs font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                   {item.category}
                 </span>
-                <button className="flex items-center space-x-2 bg-[#F1E9DC] text-[#3A4D37] px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#F1E9DC]/90 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 delay-150 shadow-lg">
-                  <Eye className="w-4 h-4" />
-                  <span>View Artwork</span>
-                </button>
+                
               </div>
             </div>
           </div>

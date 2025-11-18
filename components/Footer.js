@@ -125,11 +125,11 @@ export default function Footer() {
               <div className="grid grid-cols-3 gap-3 mb-8">
                 {[
                   
-                  { icon: FaInstagram, href: "#" },
+                  { icon: FaInstagram, href: "https://www.instagram.com/aderoremmy/" },
                   
-                  { icon: FaLinkedin, href: "#" },
+                  { icon: FaLinkedin, href: "https://www.linkedin.com/in/remmyadero/" },
                   
-                  { icon: FaYoutube, href: "#" }
+                  { icon: FaYoutube, href: "https://www.youtube.com/@racartstudios/featured" }
                 ].map(({ icon: Icon, href }, index) => (
                   <a
                     key={index}
